@@ -1,0 +1,19 @@
+{
+  "name": "theveryfirstbot",
+  "version": "1.0.0",
+  "description": "Bot created by going through discordjs guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "discord",
+    "discordjs",
+    "bot",
+    "guide",
+    "tutorial",
+    "javascript"
+  ],
+  "author": "Andrey Dmitriev",
+  "license": "ISC"
+}
