@@ -42,8 +42,7 @@ client.once(Events.ClientReady, readyClient => {
 
 // receiving interactions
 
-client.on(Events.InteractionCreate, async interaction => {
-	console.log("event triggered");
+client.on(Events.InteractionCreate, async interaction => {	
 	if (!interaction.isChatInputCommand()) return;
 	const command = interaction.client.commands.get(interaction.commandName);
 
