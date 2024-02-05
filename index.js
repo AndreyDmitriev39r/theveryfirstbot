@@ -7,11 +7,36 @@ const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const dotenv = require('dotenv');
 dotenv.config();
 
+// ORM
+const Sequelize = require('sequelize');
+
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-// commands
+// database connection info
+const sequelize = new Sequelize('database', 'user', 'password', {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: 'false',
+	storage: 'database.sqlite',
+})
 
+// creating a table
+const Tags = sequelize.define('tags', {
+	name: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+	description: Sequelize.TEXT,
+	username: Sequelize.STRING,
+	usage_count: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+		allowNull: false,
+	},
+});
+
+// commands
 client.commands = new Collection();
 
 const foldersPath = path.join(__dirname, "commands");
